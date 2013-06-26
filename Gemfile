@@ -9,6 +9,15 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+# Compass rails is an adapter for the Compass Stylesheet Authoring Framework
+gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
+
+# Html5 for Rails projects based on Html5 Boilerplate by Paul Irish
+gem 'html5-rails'
+
+# Haml-rails provides Haml generators for Rails
+gem 'haml-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
