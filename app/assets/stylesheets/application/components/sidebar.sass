@@ -1,0 +1,85 @@
+aside.about
+  width: 170px
+  text-align: right
+  position: fixed
+  top: 60px
+  left: 35px
+
+  .font-icon
+    position: absolute
+    top: 37px
+    right: -58px
+    display: inline-block
+    width: 22px
+    height: 22px
+    background: lighten($primary, 15%)
+    border: 2px solid #FFF
+    +box-shadow(1px 0 0 darken($soft, 8%), -1px 0 0 darken($soft, 8%), 0 1px 0 darken($soft, 8%), 0 -1px 0 darken($soft, 8%))
+    +border-radius(15px)
+    +transition-property("all")
+    +transition-timing-function("ease-in")
+    +transition-duration(0.2s)
+
+    &.email-icon
+      top: 2px
+
+    a
+      text-align: center
+      line-height: 22px
+      display: block
+      color: #FFF
+      font-size: 12px
+      text-decoration: none
+
+    &:hover
+      background: $primary
+
+  img.avatar
+    width: 120px
+    height: 120px
+    +border-radius(60px)
+
+  header.name
+    margin: 15px 0
+    position: relative
+
+    h2
+      +sans(24px, bold, normal)
+      color: $primary
+
+    .job-title
+      +droid(16px, normal, italic)
+      color: #888
+      line-height: 18px
+
+  .info
+    clear: both
+    position: relative
+    margin-bottom: 20px
+
+    .description
+      +droid(14px, normal, italic)
+      line-height: 20px
+      width: 170px
+      height: 100px
+      overflow: hidden
+      display: table-cell
+      vertical-align: middle
+
+    .bracket
+      +sans(114px, 200, normal)
+      color: darken($soft, 8%)
+      width: 28px
+      height: 100px
+      line-height: 86px
+      position: absolute
+      top: 0
+      right: -32px
+
+    a.project-link
+      display: block
+      color: $primary
+      text-decoration: none
+
+      &:hover
+        text-decoration: underline
