@@ -42,7 +42,10 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem "bcrypt-ruby", :require => "bcrypt"
+
+# Make controllers inherit all restful actions
+gem 'inherited_resources'
 
 # Use unicorn as the app server
 # gem 'unicorn'

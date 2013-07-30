@@ -1,0 +1,11 @@
+%section.login-container
+  .login
+    %h1 Login to Admin Panel
+    = form_tag session_path, :class => "form" do
+      %p
+        =text_field_tag :email, nil, placeholder: "Email"
+      %p
+        =password_field_tag :password, nil, placeholder: "Password"
+      %p
+        = link_to "Back", root_path, class: "back-link"
+        %button.button{ :type => "submit" } Login
