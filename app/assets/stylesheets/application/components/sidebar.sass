@@ -1,38 +1,63 @@
 aside.about
-  width: 170px
-  text-align: right
+  height: 2000px
+  width: 250px
+  border-right: 1px solid $soft
   position: fixed
-  top: 60px
-  left: 35px
+  top: 0
+  left: 0
 
-  .font-icon
-    position: absolute
-    top: 37px
-    right: -58px
-    display: inline-block
-    width: 22px
-    height: 22px
-    background: lighten($primary, 15%)
-    border: 2px solid #FFF
-    +box-shadow(1px 0 0 darken($soft, 8%), -1px 0 0 darken($soft, 8%), 0 1px 0 darken($soft, 8%), 0 -1px 0 darken($soft, 8%))
-    +border-radius(15px)
-    +transition-property("all")
-    +transition-timing-function("ease-in")
-    +transition-duration(0.2s)
+  nav.user-nav
+    margin: 20px 35px
+    ul
+      overflow: hidden
+      float: right
 
-    &.email-icon
-      top: 2px
+    li
+      float: left
+      margin-left: 15px
 
     a
-      text-align: center
-      line-height: 22px
-      display: block
-      color: #FFF
-      font-size: 12px
-      text-decoration: none
+      color: $secondary
+      +arial(14px, normal, normal)
 
-    &:hover
-      background: $primary
+      &:hover
+        color: darken($secondary, 20%)
+
+  .info-wrapper
+    width: 170px
+    text-align: right
+    position: absolute
+    top: 60px
+    left: 35px
+
+    .font-icon
+      position: absolute
+      top: 37px
+      right: -58px
+      display: inline-block
+      width: 22px
+      height: 22px
+      background: lighten($primary, 15%)
+      border: 2px solid #FFF
+      +box-shadow(1px 0 0 darken($soft, 8%), -1px 0 0 darken($soft, 8%), 0 1px 0 darken($soft, 8%), 0 -1px 0 darken($soft, 8%))
+      +border-radius(15px)
+      +transition-property("all")
+      +transition-timing-function("ease-in")
+      +transition-duration(0.2s)
+
+      &.email-icon
+        top: 2px
+
+      a
+        text-align: center
+        line-height: 22px
+        display: block
+        color: #FFF
+        font-size: 12px
+        text-decoration: none
+
+      &:hover
+        background: $primary
 
   img.avatar
     width: 120px
@@ -48,7 +73,7 @@ aside.about
       color: $primary
 
     .job-title
-      +droid(16px, normal, italic)
+      +pt(16px, normal, italic)
       color: #888
       line-height: 18px
 
@@ -58,7 +83,7 @@ aside.about
     margin-bottom: 20px
 
     .description
-      +droid(14px, normal, italic)
+      +pt(14px, normal, italic)
       line-height: 20px
       width: 170px
       height: 100px
