@@ -1,0 +1,2 @@
+module Editor::AccountsHelper
+end

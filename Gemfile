@@ -47,6 +47,12 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # Make controllers inherit all restful actions
 gem 'inherited_resources'
 
+# An interface to the ImageMagick and GraphicsMagick image processing libraries
+gem 'rmagick'
+
+# File upload
+gem 'carrierwave'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -2,11 +2,12 @@
   - if current_user
     %nav.user-nav
       %ul
-        %li= link_to "Profile", "#"
+        %li= link_to "Account", edit_editor_account_path
+        %li= link_to "Profile", edit_editor_profile_path
         %li= link_to "Posts", "#"
         %li= link_to "Logout", logout_path, :method => :delete
 
-  .info-wrapper
+  -# .info-wrapper
     =image_tag "avatar.jpg", class: 'avatar'
     %header.name
       %h2 Milan Nasevic

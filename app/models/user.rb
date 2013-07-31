@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  # Uploaders
+  mount_uploader :avatar, AvatarUploader
+
   # Attributes
   attr_accessor :password, :password_confirmation
 

@@ -3,4 +3,9 @@ Blog::Application.routes.draw do
   delete '/logout', :to => 'sessions#destroy', :as => 'logout'
   root :to => 'welcome#index'
   resource :session
+
+  namespace :editor do
+    resource :account, :only => [:edit, :update]
+    resource :profile, :only => [:edit, :update]
+  end
 end
