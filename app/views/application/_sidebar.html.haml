@@ -4,23 +4,22 @@
       %ul
         %li= link_to "Account", edit_editor_account_path
         %li= link_to "Profile", edit_editor_profile_path
-        %li= link_to "Posts", "#"
+        %li= link_to "Posts", editor_posts_path
         %li= link_to "Logout", logout_path, :method => :delete
 
   -# .info-wrapper
     =image_tag "avatar.jpg", class: 'avatar'
     %header.name
-      %h2 Milan Nasevic
-      .job-title Software developer
-      .font-icon.email-icon=mail_to "mnasevic@gmail.com", "", class: "icon-mail"
+      %h2= @user.name
+      .job-title= @user.job_title
+      .font-icon.email-icon=mail_to @user.email, "", class: "icon-mail"
 
     .info
-      .description Working with Ruby, Ruby on Rails, HTML5, Git, Vim, CSS3, Sass, Compass, JQuery, JavaScript, Backbone.js, Coffeescript...
+      .description= @user.about_info
       .bracket }
-      .font-icon=link_to "", "http://linkedin.com", class: "icon-linkedin"
+      .font-icon=link_to "", @user.linkedin_url, class: "icon-linkedin"
 
     .info
-      .description
-        Folow me on GitHub and view all my projects that I'm working on blah blah blah and blah blah.
+      .description= @user.project_info
       .bracket }
-      .font-icon=link_to "", "http://github.com", class: "icon-github"
+      .font-icon=link_to "", @user.github_url, class: "icon-github"

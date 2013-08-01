@@ -1,0 +1,10 @@
+%nav.secondary-navigation
+  %ul.wat-cf
+    %li.first= link_to "List", editor_posts_path
+    %li= link_to "New", new_editor_post_path
+    %li.active= link_to "Edit", edit_editor_post_path
+.content
+  %h2.title Edit Post
+  .inner
+    = form_for @post, :url => editor_post_path(@post), :html => { :class => :form } do |f|
+      = render :partial => "form", :locals => {:f => f}

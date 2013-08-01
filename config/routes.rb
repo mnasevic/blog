@@ -7,5 +7,6 @@ Blog::Application.routes.draw do
   namespace :editor do
     resource :account, :only => [:edit, :update]
     resource :profile, :only => [:edit, :update]
+    resources :posts
   end
 end

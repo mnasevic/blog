@@ -1,0 +1,23 @@
+.group
+  = f.label :title
+  = f.text_field :title
+  %span.description Title of the post
+.group
+  = f.label :content
+  = f.text_area :content
+  %span.description Content of the post
+.group
+  = f.label :published_at
+  = f.datetime_select :published_at
+  %span.description Date and time when this post is published
+.group
+  = f.label :is_publish
+  = f.check_box :is_publish
+  %span.description Is post published?
+.group
+  = f.label :description
+  = f.text_area :description
+  %span.description Description goes in page head as description tag
+.group.navform.wat-cf
+  %button.button{:type => "submit"} Save
+  = link_to "Cancel", editor_posts_path
