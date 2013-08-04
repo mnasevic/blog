@@ -1,8 +1,8 @@
-%section.edit-form.edit-personal-info-form
-  %header
-    %h2.title Edit personal info
+%section.editor-form.edit-personal-info-form
+  %header.title
+    %h2 Edit personal info
   .inner
-    = form_for @user, :url => editor_profile_path, :html => { :class => :form } do |f|
+    = form_for @user, url: editor_profile_path, html: { class: :form } do |f|
       .group
         = f.label :name
         = f.text_field :name
@@ -14,16 +14,16 @@
         = f.file_field :avatar
       .group
         = f.label :about_info
-        = f.text_area :about_info
+        = f.text_area :about_info, class: 'info'
       .group
         = f.label :linkedin_url
         = f.text_field :linkedin_url
       .group
         = f.label :project_info
-        = f.text_area :project_info
+        = f.text_area :project_info, class: 'info'
       .group
         = f.label :github_url
         = f.text_field :github_url
-      .group
-        %button.button{:type => "submit"} Save
+      .group.bottom-nav
         = link_to "Cancel", root_path
+        = f.submit  "Save"

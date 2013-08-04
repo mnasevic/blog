@@ -1,0 +1,15 @@
+%section.editor-form.post
+  %header.title
+    %h2= @post.title
+    %nav.secondary-nav
+      %ul
+        %li= link_to "List", editor_posts_path
+        %li= link_to "New", new_editor_post_path
+  .inner
+    .group.content= @post.content
+    .group.description= @post.description
+    .group.published-date= @post.published_at
+    .group.publish-status= @post.is_publish
+    .group.bottom-nav
+      = link_to "Delete", editor_post_path(@post), method: :delete, class: 'button', confirm: 'Are you sure?'
+      = link_to "Edit", edit_editor_post_path(@post), class: 'button'

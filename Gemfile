@@ -44,9 +44,6 @@ end
 # Use ActiveModel has_secure_password
 gem "bcrypt-ruby", :require => "bcrypt"
 
-# Make controllers inherit all restful actions
-gem 'inherited_resources'
-
 # An interface to the ImageMagick and GraphicsMagick image processing libraries
 gem 'rmagick'
 

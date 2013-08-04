@@ -7,8 +7,8 @@
         %li= link_to "Posts", editor_posts_path
         %li= link_to "Logout", logout_path, :method => :delete
 
-  -# .info-wrapper
-    =image_tag "avatar.jpg", class: 'avatar'
+  .info-wrapper
+    =image_tag @user.avatar.url(:thumb), class: 'avatar'
     %header.name
       %h2= @user.name
       .job-title= @user.job_title

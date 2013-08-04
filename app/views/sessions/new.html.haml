@@ -1,11 +1,14 @@
-%section.login-container
-  .login
-    %h1 Login to Admin Panel
+%section.login-form
+  %header.title
+    %h2 Login to Admin Panel
+  .inner
     = form_tag session_path, :class => "form" do
-      %p
+      .group
+        =label_tag :email
         =text_field_tag :email, nil, placeholder: "Email"
-      %p
+      .group
+        =label_tag :password
         =password_field_tag :password, nil, placeholder: "Password"
-      %p
-        = link_to "Back", root_path, class: "back-link"
-        %button.button{ :type => "submit" } Login
+      .group.bottom-nav
+        = submit_tag "Login"
+        = link_to "Back", root_path

@@ -8,6 +8,10 @@ class Editor::PostsController < Editor::BaseController
     @post = current_user.posts.find(params[:id])
   end
 
+  def show
+    @post = current_user.posts.find(params[:id])
+  end
+
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
@@ -24,6 +28,13 @@ class Editor::PostsController < Editor::BaseController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy
+
+    redirect_to editor_posts_path, :notice => "You have successfully deleted your post."
   end
 
   private
