@@ -18,9 +18,19 @@
 @import "application/fonts/fontello/fontello";
 
 //-----------------------------------------
+// Plugins
+//-----------------------------------------
+@import "plugins/redactor";
+
+//-----------------------------------------
 // Custom styles
 //-----------------------------------------
 @import "application/components/layout";
 @import "application/components/sidebar";
 @import "application/components/post";
 @import "application/components/forms";
+
+//-----------------------------------------
+// Overrides
+//-----------------------------------------
+@import "overrides/redactor";

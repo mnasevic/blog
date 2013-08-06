@@ -1,9 +1,9 @@
 .group
   = f.label :title
   = f.text_field :title
-.group
+.group.redactor-wrapper
   = f.label :content
-  = f.text_area :content
+  = f.text_area :content, :class => 'redactor', :rows => 40, :cols => 120
 .group
   = f.label :description
   = f.text_area :description

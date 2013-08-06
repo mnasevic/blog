@@ -46,9 +46,13 @@ gem "bcrypt-ruby", :require => "bcrypt"
 
 # An interface to the ImageMagick and GraphicsMagick image processing libraries
 gem 'rmagick'
+gem "mini_magick"
 
 # File upload
 gem 'carrierwave'
+
+# Redactor editor
+gem 'redactor-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
