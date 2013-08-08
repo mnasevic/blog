@@ -21,6 +21,8 @@
 // Plugins
 //-----------------------------------------
 @import "plugins/redactor";
+@import "plugins/syntax_highlighter/shCore";
+@import "plugins/syntax_highlighter/shThemeDefault";
 
 //-----------------------------------------
 // Custom styles
