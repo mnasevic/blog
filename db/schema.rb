@@ -11,16 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130729184424) do
+ActiveRecord::Schema.define(version: 20130805081741) do
+
+  create_table "posts", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.text     "description"
+    t.datetime "published_at"
+    t.boolean  "is_publish"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "redactor_assets", force: true do |t|
+    t.integer  "user_id"
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "redactor_assets", ["assetable_type", "assetable_id"], name: "idx_redactor_assetable"
+  add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_redactor_assetable_type"
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.boolean  "is_admin",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "job_title"
+    t.string   "avatar"
+    t.text     "about_info"
+    t.string   "linkedin_url"
+    t.string   "github_url"
+    t.text     "project_info"
   end
 
 end

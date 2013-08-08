@@ -1,0 +1,2 @@
+module Editor::PostsHelper
+end

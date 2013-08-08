@@ -1,0 +1,26 @@
+%section.editor-form.all-posts
+  %header.title
+    %h2 All posts
+    %nav.secondary-nav
+      %ul
+        %li.active= link_to "List", editor_posts_path
+        %li= link_to "New", new_editor_post_path
+  %ul.posts-list
+    %li.posts-header
+      %span.id ID
+      %span.title Title
+      %span.is-publish Is publish
+      %span.created-at Created at
+      %span.resource-actions Actions
+    - @posts.each do |post|
+      %li
+        %span.id= post.id
+        %span.title= link_to post.title, editor_post_path(post)
+        %span.is-publish= post.is_publish
+        %span.created-at= post.created_at
+        %span.resource-actions
+          = link_to "Edit", edit_editor_post_path(post)
+          |
+          = link_to "Show", editor_post_path(post)
+          |
+          = link_to "Delete", editor_post_path(post), method: :delete, confirm: 'Are you sure?'

@@ -1,0 +1,11 @@
+%section.editor-form.edit-post-form
+  %header.title
+    %h2 Edit post
+    %nav.secondary-nav
+      %ul
+        %li= link_to "List", editor_posts_path
+        %li= link_to "New", new_editor_post_path
+        %li.active= link_to "Edit", edit_editor_post_path(@post)
+  .inner
+    = form_for @post, url: editor_post_path(@post), html: { class: :form } do |f|
+      = render "form", f: f

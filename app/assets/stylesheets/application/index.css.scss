@@ -18,9 +18,21 @@
 @import "application/fonts/fontello/fontello";
 
 //-----------------------------------------
+// Plugins
+//-----------------------------------------
+@import "plugins/redactor";
+@import "plugins/syntax_highlighter/shCore";
+@import "plugins/syntax_highlighter/shThemeDefault";
+
+//-----------------------------------------
 // Custom styles
 //-----------------------------------------
 @import "application/components/layout";
 @import "application/components/sidebar";
 @import "application/components/post";
-@import "application/components/login";
+@import "application/components/forms";
+
+//-----------------------------------------
+// Overrides
+//-----------------------------------------
+@import "overrides/redactor";

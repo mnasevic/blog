@@ -1,0 +1,198 @@
+section.editor-form, section.login-form
+  margin-top: 40px
+  position: relative
+  background: white
+  +border-radius(3px)
+  +box-shadow(0 0 200px rgba(white, .5), 0 1px 2px rgba(black, .3))
+
+  .inner
+    overflow: hidden
+    padding: 20px 20px 10px
+
+  &:before
+    content: ''
+    position: absolute
+    top: -8px
+    right: -8px
+    bottom: -8px
+    left: -8px
+    z-index: -1
+    background: rgba(black, .08)
+    +border-radius(4px)
+
+  header.title
+    position: relative
+
+    h2
+      +arial(24px, bold, normal)
+      padding: 0 20px
+      line-height: 40px
+      font-size: 16px
+      font-weight: bold
+      color: #555
+      text-shadow: 0 1px white
+      background: #f3f3f3
+      border-bottom: 1px solid #cfcfcf
+      border-radius: 3px 3px 0 0
+      +background(linear-gradient(white, #EEF2F5))
+      +box-shadow(0 1px #f5f5f5)
+
+    nav.secondary-nav
+      overflow: hidden
+      position: absolute
+      top: 8px
+      right: 0
+
+      ul
+        overflow: hidden
+
+      li
+        float: left
+        display: inline-block
+        background: white
+        +border-radius(10px)
+        text-align: center
+        margin-right: 15px
+
+      a
+        display: block
+        padding: 0 20px
+        text-shadow: 0 1px #e3f1f1
+        line-height: 20px
+        +arial(12px, normal, normal)
+        color: $secondary
+        text-decoration: none
+        border: 1px solid
+        border-color: #b4ccce #b3c0c8 #9eb9c2
+        +border-radius(10px)
+        +box-shadow(0 1px 2px rgba(black, .15), 0 0 4px #b4ccce inset)
+
+      li.active a, a:hover
+        background: #cde5ef
+        border-color: #9eb9c2 #b3c0c8 #b4ccce
+        +box-shadow(inset 0 0 3px rgba(black, .2))
+
+
+  .group
+    overflow: hidden
+    margin: 10px 0
+    clear: both
+
+    &.bottom-nav
+      float: right
+
+      a
+        +arial(12px, normal, normal)
+        color: $secondary
+        float: left
+        margin-right: 10px
+        line-height: 24px
+
+        &:hover
+          color: darken($secondary, 20%)
+
+  label
+    width: 95px
+    margin-right: 8px
+    display: inline-block
+    +arial(14px, bold, normal)
+    text-align: right
+    line-height: 34px
+    float: left
+
+  select, input[type=file]
+    margin-top: 8px
+
+
+  input[type=text], input[type=password], textarea
+    +arial(12px, normal, normal)
+    line-height: 18px
+    color: #404040
+    background: white
+    border: 1px solid #c4c4c4
+    +border-radius(2px)
+    +box-shadow(inset 0 1px 3px rgba(black, .12))
+    width: 510px
+    float: right
+
+    &:focus
+      border-color: #7dc9e2
+
+  input[type=text], input[type=password]
+    height: 34px
+    padding: 0 10px
+
+  textarea
+    height: 120px
+    padding: 5px 10px
+
+    &.info
+      height: 100px
+
+  input[type=checkbox]
+    margin-top: 11px
+
+  input[type=submit], .button
+    float: right
+    cursor: pointer
+    padding: 0 14px
+    height: 24px
+    +arial(12px, bold, normal)
+    color: #527881
+    text-shadow: 0 1px #e3f1f1
+    text-decoration: none
+    background: #cde5ef
+    border: 1px solid
+    border-color: #b4ccce #b3c0c8 #9eb9c2
+    +border-radius(2px)
+    +background(linear-gradient(#EDF5F8, #CDE5EF))
+    +box-shadow(inset 0 1px white, 0 1px 2px rgba(black, .15))
+
+    &:active, &:hover
+      background: #cde5ef
+      border-color: #9eb9c2 #b3c0c8 #b4ccce
+      +box-shadow(inset 0 0 3px rgba(black, .2))
+
+  ul.posts-list
+    li
+      overflow: hidden
+      padding: 10px 20px
+      line-height: 24px
+      color: #888
+
+      &:nth-child(odd)
+        background: lighten($secondary, 45%)
+
+      &.posts-header
+        background: $secondary
+
+        span
+          color: white
+          +text-shadow(0 1px 0 #222)
+
+      span
+        float: left
+        +arial(12px, bold, normal)
+
+        &.id
+          width: 30px
+
+        &.title
+          width: 200px
+
+        &.is-publish
+          width: 80px
+
+        &.created-at
+          width: 200px
+
+        &.resource-actions
+          width: 110px
+
+        a
+          +arial(12px, normal, normal)
+          color: $secondary
+          line-height: 24px
+
+          &:hover
+            color: darken($secondary, 20%)

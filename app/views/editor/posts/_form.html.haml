@@ -1,0 +1,18 @@
+.group
+  = f.label :title
+  = f.text_field :title
+.group.redactor-wrapper
+  = f.label :content
+  = f.text_area :content, :class => 'redactor', :rows => 40, :cols => 120
+.group
+  = f.label :description
+  = f.text_area :description
+.group
+  = f.label :published_at
+  = f.datetime_select :published_at
+.group
+  = f.label :is_publish
+  = f.check_box :is_publish
+.group.bottom-nav
+  = link_to "Cancel", editor_posts_path
+  = f.submit  "Save"

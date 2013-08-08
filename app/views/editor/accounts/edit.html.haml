@@ -1,0 +1,17 @@
+%section.editor-form.edit-password-form
+  %header.title
+    %h2 Change password
+  .inner
+    = form_for @user, url: editor_account_path, html: { class: :form } do |f|
+      .group
+        = f.label :email, "Email"
+        = f.text_field :email
+      .group
+        = f.label :password, "Password"
+        = f.password_field :password
+      .group
+        = f.label :password_confirmation, "Re. password"
+        = f.password_field :password_confirmation
+      .group.bottom-nav
+        = link_to "Cancel", root_path
+        = f.submit  "Save"
