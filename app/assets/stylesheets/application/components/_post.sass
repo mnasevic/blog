@@ -1,10 +1,10 @@
-article.post
-  padding: 20px 0 45px 35px
+article.post, section.post
+  padding: 20px 0 45px 0
 
   header.title-box
-    min-height: 160px
+    min-height: 145px
     position: relative
-    margin-bottom: 20px
+    margin-bottom: 34px
 
     h2
       position: absolute
@@ -16,16 +16,25 @@ article.post
       +sans(38px, bold, normal)
 
     .publish-info
-      margin-top: 10px
+      margin-top: 5px
       color: lighten($base-text, 40%)
-      +pt(14px, normal, italic)
+      +sans(14px, normal, italic)
 
   .content
-    +sans(18px, normal, normal)
-    line-height: 22px
+    +sans(16px, normal, normal)
+    line-height: 20px
 
     p
       margin-bottom: 15px
+
+    a
+      color: $secondary
+
+      &:hover
+        color: darken($secondary, 20%)
+
+    .syntaxhighlighter
+      font-size: 14px !important
 
 .syntaxhighlighter
   padding: 10px 0

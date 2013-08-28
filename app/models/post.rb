@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   before_save :reset_published_at, :unless => Proc.new {|m| m.is_publish }
 
   # Scopes
-  scope :published, -> { where(publish: true) }
+  scope :published, -> { where(is_publish: true) }
 
   def to_param
     "#{id}-#{title.parameterize}"
