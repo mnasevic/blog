@@ -9,6 +9,18 @@ class ApplicationController < ActionController::Base
     @user = current_user ? current_user : User.first
   end
 
+  def redactor_authenticate_user!
+    authenticate_user!
+  end
+
+  def redactor_current_user
+    current_user
+  end
+
+  def authenticate_user!
+    redirect_to login_url, :error => "Access denied." unless current_user
+  end
+
   private
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]

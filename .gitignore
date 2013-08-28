@@ -17,3 +17,4 @@
 
 # Ignore carrier wave uploaded files
 /public/uploads
+/public/system
