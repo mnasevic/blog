@@ -10,7 +10,7 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 
 # Compass rails is an adapter for the Compass Stylesheet Authoring Framework
-gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
+gem 'compass-rails'
 
 # Html5 for Rails projects based on Html5 Boilerplate by Paul Irish
 gem 'html5-rails'
