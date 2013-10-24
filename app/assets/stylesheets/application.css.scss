@@ -15,7 +15,6 @@
 //-----------------------------------------
 @import url(http://fonts.googleapis.com/css?family=PT+Serif:400,400italic);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700);
-@import "application/fonts/fontello/fontello";
 
 //-----------------------------------------
 // Plugins
@@ -27,10 +26,11 @@
 //-----------------------------------------
 // Custom styles
 //-----------------------------------------
-@import "application/components/layout";
-@import "application/components/sidebar";
-@import "application/components/post";
-@import "application/components/forms";
+@import "components/layout";
+@import "components/sidebar";
+@import "components/post";
+@import "components/forms";
+@import "components/fonts";
 
 //-----------------------------------------
 // Overrides
