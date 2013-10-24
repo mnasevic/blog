@@ -2,11 +2,11 @@
   %meta{ :charset => 'utf-8' }/
   %meta{ 'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1' }/
 
-  %title
-    == #{ controller.controller_name.titleize } - #{ controller.action_name.titleize }
+  %title= "Milan Nasevic"
 
-  %meta{ :name => 'description', :content => '' }/
-  %meta{ :name => 'viewport', :content => 'width=device-width' }/
+  %meta{ :content => "Software developer", :name => "description" }
+  %meta{ :content => "milan nasevic, milan, nasevic, software, develpoer, ruby, rails, ruby on rails, html, html5, css3, jquery, backbone.js, sass, coffeescript, vim, git", :name => "keywords" }/
+  %meta{ :content => "Milan Nasevic", :name => "author" }/
 
   = render 'stylesheets'
   = javascript_include_tag 'polyfills'
