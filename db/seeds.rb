@@ -6,71 +6,100 @@ user_raw_params = {
   name: "Milan Nasevic",
   job_title: "Software developer",
   linkedin_url: "https://www.linkedin.com/in/milannasevic",
-  about_info: "Working with Ruby, Ruby on Rails, HTML5, Git, Vim, CSS3, Sass, Compass, JQuery, JavaScript, Backbone.js, Coffeescript",
+  about_info: "Ruby, Ruby on Rails, HTML5, Git, Vim, CSS3, Sass, Compass, JQuery, JavaScript, Backbone.js, Coffeescript...",
   github_url: "https://github.com/mnasevic",
-  project_info: "Folow me on GitHub and view all my projects that I'm working on blah blah blah and blah blah."
+  project_info: "Folow me on GitHub."
 }
 user_params = ActionController::Parameters.new(user_raw_params)
 user = User.create(user_params.permit!) # To whitelist an entire hash of parameter (permit!)
 
 post_raw_params = {
   user_id: user.id,
-  title: "Deploying with Gitploy",
-  content: "<p>Often times I'm impressed by simple tools that do a great job. <a href=\"https://github.com/brentd/gitploy\" title=\"Dead-simple (no, really) deployment DSL created with git in mind.\">Gitploy</a>&#160;is one such tool, a very small deployment DSL&#160;created with git in mind that is dead-simple to use. It is only about 125 lines of <a href=\"https://github.com/brentd/gitploy/blob/master/lib/gitploy.rb\" title=\"Gitploy script code\">ruby code</a>&#160;that you can read and understand in few minutes.</p>
-  <p>If you need a more complex deployment tool that supports different SCMs and has various predefined tasks for managing deploys go check out <a href=\"https://github.com/capistrano/capistrano\" title=\"Remote multi-server automation tool\">Capistrano</a>. Or if you need something in between you can check out&#160;<a href=\"https://github.com/mislav/git-deploy\" title=\"git deployment made easy\">git-deploy</a>&#160;which uses git hooks.</p>
-  <p><strong>How do you deploy with Gitploy?</strong></p>
-  <p>This is my Gitploy script for deploying <a href=\"http://popravi.mk/\" title=\"PopraviMK\">popravi.mk</a> to staging and production stages:</p>
-  <pre class=\"brush: ruby\">
-    require 'gitploy/script'
+  title: "acSelect - Select box replacement",
+  content: '<p>Recently I needed to find a component that will replace the typical HTML select element and improve the user’s UI/UX. I have decided to use select2 <a href="http://ivaynberg.github.io/select2" title="Select2 - jQuery based replacement for select boxes" target="_blank">Select2</a> (jQuery based replacement for select boxes; it supports searching, remote data sets, and infinite scrolling of results). The component itself is great but a little complicated and it makes the customization of HTML and CSS not that simple. Having this on mind, soon I\'ve decided to replace select2 and create a simple plugin which contains some of the basic structure and functionality as the select2 plugin.</p>
 
-    configure do |c|
-      stage :staging do
-        c.path = '/home/deployer/www/staging.popravi.mk'
-        c.host = 'staging.popravi.mk'
-        c.user = 'deployer'
-        c.local_branch = 'staging' # default is current branch
-        c.remote_branch = 'master' # default is master
-      end
+<p>The use case behind this was that I wanted to implement a component that enables searching through a list of items and allows they to be selected (in my case it was about videos that I wanted to put in my collection). With every character typed in the input field, a list of sorted results that contains the inputted term will appear. When a certain result is selected, it is added to the list of selected results and therefore it is removed from the list of possible results.</p>
 
-      stage :production do
-        c.path = '/home/deployer/www/popravi.mk'
-        c.host = 'popravi.mk'
-        c.user = 'deployer'
-      end
-    end
+<p>I’ve named it <strong>acSelect.js</strong> (because the searching and the selecting is done with the jQuery <strong>AutoComplete</strong> widget) and it is available at my <a href="https://github.com/mnasevic" title="Milan Nasevic github" target="_blank">github account</a>. It’s the first version and I\'ll keep improving it.</p>
+<p><strong>How to use acSelect?</strong></p>
+<p>The structure is quite simple. You just need to add <strong>select</strong> or <strong>input</strong> element with a <strong>unique id</strong> and it''s parent should have <strong>"ac-select-container"</strong> class.</p>
 
-    setup do
-      remote do
-        run \"mkdir -p \#{config.path}\"
-        run \"cd \#{config.path} && git init\"
-        run \"git config --bool receive.denyNonFastForwards false\"
-        run \"git config receive.denyCurrentBranch ignore\"
-      end
-    end
+<p><strong>1. Select element example</strong><p>
+<pre class="brush: xml">
+<!-- HTML - simple select, only with title -->
+<div class="ac-select-container short">
+  <select multiple="multiple" name="collection[video_ids][]" id="collection1" class="hidden">
+    <option value="1">Flight</option>
+    <option value="2">Argo</option>
+    <option value="3">Life of Pi</option>
+    <option value="4">The Hobit</option>
+    <option value="5">Ted</option>
+    <option value="6">Madagascar 3</option>
+    <option value="7">Linkoln</option>
+    <option value="8">The Croods</option>
+  </select>
+</div>
 
-    deploy do
-      push!
-      remote do
-        run \"cd \#{config.path}\"
-        run \"git reset --hard\"
-        run \"ruby -v\"
-        run \"bundle install\"
-        run \"bundle exec rake db:migrate RAILS_ENV=production\"
-        run \"bundle exec rake assets:precompile\"
-        run \"touch tmp/restart.txt\"
-      end
-    end
-  </pre>
-  <p>In the script, we define a <strong>path</strong>, <strong>user</strong> and <strong>host</strong>&#160;for the different stages that we want to deploy to:&#160;<strong>staging</strong>&#160;and <strong>production</strong>. We can specify <strong>local_branch</strong> and <strong>remote_branch</strong>&#160;for each stage. And&#160;we define <strong>setup</strong>&#160;step that will create&#160;target folder and initialize git repo and&#160;<strong>deploy</strong>&#160;step that will do the&#160;deploy. Both define which actions will be run on production and staging servers using&#160;&#160;SSH connection.</p>
-  <p>To install the gem run:</p>
-  <pre class=\"brush: ruby\">gem install gitploy</pre>
-  <p>To setup the target folder&#160;and init repo&#160;for production stage run:</p>
-  <pre class=\"brush: ruby\">gitploy production setup</pre>
-  <p>To deploy the app to production run:</p>
-  <pre class=\"brush: ruby\">gitploy production</pre>
-  <p>For staging stage you'll need to do the same. And, there is also a manual step in between to configure the database.yml and other config files that are only setup once.</p>
-  <p>How do you automate your deploys and what tools do you use?</p>",
-  published_at: "2013-08-28 09:15:00",
+<!-- HTML - advanced select with title and image (through data attribute) -->
+<div class="ac-select-container short">
+  <select multiple="multiple" name="collection[video_ids][]" id="collection2" class="hidden">
+    <option data-image="images/flight.jpg" value="1">Flight</option>
+    <option data-image="images/argo.jpg" value="2">Argo</option>
+    <option data-image="images/life_of_pi.jpg" value="3">Life of Pi</option>
+    <option data-image="images/the_hobit.jpg" value="4">The Hobit</option>
+    <option data-image="images/ted.jpg" selected="selected" value="5">Ted</option>
+    <option data-image="images/madagaskar.jpg" value="6">Madagascar 3</option>
+    <option data-image="images/lincoln.jpg" value="7">Lincoln</option>
+    <option data-image="images/the_croods.jpg" value="8">The Croods</option>
+  </select>
+</div>
+</pre>
+
+<p>To initialize the plugin with default options, is as simple as this:</p>
+<pre class="brush: js">
+$(function() {
+  $("#collection1").acSelect();
+  $("#collection2").acSelect();
+});
+</pre>
+<br>
+<p><strong>2. Input element example </strong> (data send through acSelectData and acPreSelectData options)<p>
+<pre class="brush: xml">
+<!-- HTML - input select -->
+<div class="ac-select-container short">
+  <input type="text" placeholder="Search any term..." id="collection3">
+</div>
+</pre>
+
+<p>To initialize the plugin with options:</p>
+<pre class="brush: js">
+$(function() {
+  var selectData = [
+    {id: 1, title: "Flight", thumbnail: "images/flight.jpg"},
+    {id: 2, title: "Argo", thumbnail: "images/argo.jpg"},
+    {id: 3, title: "Life of Pi", thumbnail: "images/life_of_pi.jpg"},
+    {id: 4, title: "The Hobbit", thumbnail: "images/the_hobbit.jpg"},
+    {id: 6, title: "Madagascar 3", thumbnail: "images/madagaskar.jpg"},
+    {id: 7, title: "Lincoln", thumbnail: "images/lincoln.jpg"},
+    {id: 8, title: "The Croods", thumbnail: "images/the_croods.jpg"}
+  ];
+
+  var preselectData = [
+    {id: 5, title: "Ted", thumbnail: "images/ted.jpg"}
+  ];
+
+  $("#collection3").acSelect({
+      acLabel: "title",
+      acImage: "thumbnail",
+      acSelectData: selectData,
+      acPreSelectData: preselectData
+  });
+});
+</pre>
+
+<p>Check this <a href="https://github.com" title="acSelect - github repository" target="_blank">github repository</a> to see complete version of the code and <a href="/acSelect/example.html" title="acSelect demo">click here</a> to see how it works.</p>',
+
+  published_at: Time.now,
   is_publish: true
 }
 post_params = ActionController::Parameters.new(post_raw_params)
