@@ -156,7 +156,7 @@ DEPENDENCIES
   bcrypt-ruby
   carrierwave
   coffee-rails (~> 4.0.0)
-  compass-rails (~> 2.0.alpha.0)
+  compass-rails
   haml-rails
   html5-rails
   jbuilder (~> 1.2)
