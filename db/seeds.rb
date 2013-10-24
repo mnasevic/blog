@@ -8,7 +8,8 @@ user_raw_params = {
   linkedin_url: "https://www.linkedin.com/in/milannasevic",
   about_info: "Ruby, Ruby on Rails, HTML5, Git, Vim, CSS3, Sass, Compass, JQuery, JavaScript, Backbone.js, Coffeescript...",
   github_url: "https://github.com/mnasevic",
-  project_info: "Folow me on GitHub."
+  project_info: '<div class="project"><a href="https://github.com/mnasevic/acSelect"  target="_blank"> acSelect</a>
+   - Custom select box replacement (jQuery plugin)</div><div class="project"><a href="https://github.com/mnasevic/blog" target="_blank">Blog</a> - Personal blog (simple Rails 4 application)</div>'
 }
 user_params = ActionController::Parameters.new(user_raw_params)
 user = User.create(user_params.permit!) # To whitelist an entire hash of parameter (permit!)
@@ -97,7 +98,7 @@ $(function() {
 });
 </pre>
 
-<p>Check this <a href="https://github.com" title="acSelect - github repository" target="_blank">github repository</a> to see complete version of the code and <a href="/acSelect/example.html" title="acSelect demo">click here</a> to see how it works.</p>',
+<p>Check this <a href="https://github.com/mnasevic/acSelect" title="acSelect - github repository" target="_blank">github repository</a> to see complete version of the code and <a href="/acSelect/example.html" title="acSelect demo">click here</a> to see how it works.</p>',
 
   published_at: Time.now,
   is_publish: true

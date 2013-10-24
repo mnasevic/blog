@@ -20,6 +20,6 @@
       .font-icon=link_to "linkedin", @user.linkedin_url, class: "icon-linkedin", target: "blank"
 
     .info
-      .description= @user.project_info
+      .description= raw @user.project_info
       .bracket }
       .font-icon=link_to "github", @user.github_url, class: "icon-github", target: "blank"
