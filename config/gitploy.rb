@@ -26,7 +26,7 @@ deploy do
     run "ruby -v"
     run "bundle install"
     run "bundle exec rake db:migrate RAILS_ENV=production"
-    run "bundle exec rake assets:precompile"
+    run "bundle exec rake assets:precompile RAILS_ENV=production"
     run "touch tmp/restart.txt"
   end
 end
