@@ -16,7 +16,7 @@ user = User.create(user_params.permit!) # To whitelist an entire hash of paramet
 
 post_raw_params = {
   user_id: user.id,
-  title: "acSelect - Select box replacement",
+  title: "acSelect.js - Custom select box replacement",
   content: '<p>Recently I needed to find a component that will replace the typical HTML select element and improve the user’s UI/UX. I have decided to use select2 <a href="http://ivaynberg.github.io/select2" title="Select2 - jQuery based replacement for select boxes" target="_blank">Select2</a> (jQuery based replacement for select boxes; it supports searching, remote data sets, and infinite scrolling of results). The component itself is great but a little complicated and it makes the customization of HTML and CSS not that simple. Having this on mind, soon I\'ve decided to replace select2 and create a simple plugin which contains some of the basic structure and functionality as the select2 plugin.</p>
 
 <p>The use case behind this was that I wanted to implement a component that enables searching through a list of items and allows they to be selected (in my case it was about videos that I wanted to put in my collection). With every character typed in the input field, a list of sorted results that contains the inputted term will appear. When a certain result is selected, it is added to the list of selected results and therefore it is removed from the list of possible results.</p>
