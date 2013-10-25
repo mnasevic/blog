@@ -1,0 +1,7 @@
+- if @post
+  %article.post
+    %header.title-box
+      %h2
+        .title= truncate(@post.title, length: 70)
+        .publish-info= @post.published_at.strftime('%B %d, %Y')
+    .content= raw @post.content
