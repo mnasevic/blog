@@ -1,5 +1,3 @@
-![Travis status](https://travis-ci.org/dalibor/blog.png)
-
 # blog
 
 * http://github.com/mnasevic/blog
