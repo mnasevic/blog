@@ -17,9 +17,9 @@
     .info
       .description= @user.about_info
       .bracket }
-      .font-icon=link_to "linkedin", @user.linkedin_url, class: "icon-linkedin", target: "blank"
+      .font-icon.linkedin-icon=link_to "", @user.linkedin_url, class: "icon-linkedin", target: "blank"
 
     .info
       .description= raw @user.project_info
       .bracket }
-      .font-icon=link_to "github", @user.github_url, class: "icon-github", target: "blank"
+      .font-icon.github-icon=link_to "", @user.github_url, class: "icon-github", target: "blank"
