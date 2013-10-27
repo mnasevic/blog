@@ -14,12 +14,12 @@
       .job-title= @user.job_title
       .font-icon.email-icon=mail_to @user.email, "", class: "icon-mail"
 
-    .info
+    .info.about-info
       .description= @user.about_info
       .bracket }
       .font-icon.linkedin-icon=link_to "", @user.linkedin_url, class: "icon-linkedin", target: "blank"
 
-    .info
+    .info.project-info
       .description= raw @user.project_info
       .bracket }
       .font-icon.github-icon=link_to "", @user.github_url, class: "icon-github", target: "blank"
